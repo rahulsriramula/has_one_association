@@ -1,0 +1,41 @@
+	<h1>Village Listing</h1>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+table#t01 {
+    width: 100%;    
+    background-color: #f1f1c1;
+}
+</style>
+
+<table style="width:100%;">
+	<thead>
+		<th>Village name</th>
+		<th>state</th>
+			
+	</thead>
+	<tbody>
+		<% @village.lakes.each do |village| %>
+		  <tr> 
+		  	<td><%= village.name %></td>
+		  	<td><%= village.state %></td>
+		  
+        <td><%= link_to 'Village', village.lake.present? ? lake_village_path(lake, :id => lake.village.id) : new_village_lake_path(village) %></td>
+		  	<td><%= link_to 'edit', edit_lake_village_path(village) %></td>
+		  	<td><%= link_to 'show', village_path(village) %></td>
+		  	<td><%= link_to 'Destroy', village_path(village),
+		                                :method => :delete, data: { clear: 'Are you sure?' } %></td>
+		 </tr>
+		<% end %>
+	</tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Village', new_village_lake_path,:class => "btn btn-primary" %>

@@ -1,0 +1,42 @@
+<h1>Lake Listing</h1>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+table#t01 {
+    width: 100%;    
+    background-color: #f1f1c1;
+}
+</style>
+
+<table style="width:100%;">
+	<thead>
+		<th>Lake area</th>
+		<th>location</th>
+		<th>distance</th>
+		
+	</thead>
+	<tbody>
+		<% @lakes.each do |lake| %>
+		  <tr> 
+		  	<td><%= lake.area %></td>
+		  	<td><%= lake.location %></td>
+		  	<td><%= lake.distance %></td>
+        <td><%= link_to 'Village', lake.village.present? ? lake_village_path(lake, :id => lake.village.id) : new_lake_village_path(lake) %></td>
+		  	<td><%= link_to 'edit', edit_lake_path(lake) %></td>
+		  	<td><%= link_to 'show', lake_path(lake) %></td>
+		  	<td><%= link_to 'Destroy', lake_path(lake),
+		                                :method => :delete, data: { clear: 'Are you sure?' } %></td>
+		 </tr>
+		<% end %>
+	</tbody>
+</table>
+
+<br>
+
+<%= link_to 'New lake', new_lake_path,:class => "btn btn-primary" %>

@@ -1,0 +1,14 @@
+<%= form_for ([@village.lake, @village])  do |f| %>
+<p>
+	<%= f.label "Name" %>
+	<%= f.text_field :name %>
+</p>
+<p>
+	<%= f.label "State" %>
+	<%= f.text_field :state %>
+</p>
+<p>
+	<%= f.submit "submit" %>
+</p>
+<%end%>
+

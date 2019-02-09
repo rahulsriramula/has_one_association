@@ -1,0 +1,18 @@
+<%= form_for @lake do |f| %>
+<p>
+	<%= f.label "lake area" %>
+	<%= f.text_field :area %>
+</p>
+<p>
+	<%= f.label "lake distance" %>
+	<%= f.text_field :distance %>
+</p>
+<p>
+	<%= f.label "lake location" %>
+	<%= f.text_field :location %>
+</p>
+<p>
+	<%= f.submit "Submit" %>
+</p>
+<% end %>
+	
